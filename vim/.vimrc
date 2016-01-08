@@ -1,37 +1,26 @@
-" Vundle set up
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Set up for Plug
+call plug#begin('~/.vim/plugged')
 
 " Plugins
-" ctrlp.vim            vim-coffee-script    vim-javascript
-" nerdtree             vim-colors-solarized vim-sensible
-" vim-airline          vim-fugitive         vim-tmux-navigator
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'bling/vim-airline'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tpope/vim-fugitive'
-Plugin 'pangloss/vim-javascript'
-Plugin 'tpope/vim-sensible'
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'bling/vim-airline'
+Plug 'kchmck/vim-coffee-script'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-fugitive'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'tpope/vim-sensible'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
+call plug#end()
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+filetype plugin indent on
 
 " Solarized theme setting
 syntax enable
 set background=dark
-"colorscheme solarized
+colorscheme solarized
 
 " Solarized theme setting for AirLine
 let g:airline_solarized_bg="dark"
@@ -42,7 +31,6 @@ let g:airline_powerline_fonts = 1
 
 " Auto open NERDTree when vim starts up
 autocmd vimenter * NERDTree
-
 " Auto close NERDTree if NERDTree is the only windown open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
