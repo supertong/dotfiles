@@ -86,6 +86,3 @@ source $ZSH/oh-my-zsh.sh
 # NVM_PATH
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
-
-# aws-cli auto-complete
-source /usr/local/share/zsh/site-functions/_aws
