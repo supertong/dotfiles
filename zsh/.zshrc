@@ -88,6 +88,3 @@ export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# added by travis gem
-[ -f /Users/tongli/.travis/travis.sh ] && source /Users/tongli/.travis/travis.sh
