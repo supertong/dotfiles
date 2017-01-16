@@ -85,6 +85,6 @@ source $ZSH/oh-my-zsh.sh
 
 # NVM_PATH
 export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+source /usr/local/opt/nvm/nvm.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
