@@ -85,6 +85,7 @@ source $ZSH/oh-my-zsh.sh
 
 # NVM_PATH
 export NVM_DIR=~/.nvm
-source /usr/local/opt/nvm/nvm.sh
+source $NVM_DIR/nvm.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
