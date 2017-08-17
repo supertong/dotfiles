@@ -1,11 +1,14 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/tongli/.oh-my-zsh
+export ZSH=/Users/tli/.oh-my-zsh
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator ssh dir)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs node_version time)
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="pygmalion"
+# Check details for the theme here https://github.com/bhilburn/powerlevel9k
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -89,3 +92,5 @@ source $NVM_DIR/nvm.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Hide the username display from agnoster theme
