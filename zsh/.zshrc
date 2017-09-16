@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/tli/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator ssh dir)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs node_version time)
 
