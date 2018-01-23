@@ -8,7 +8,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs node_version time)
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # Check details for the theme here https://github.com/bhilburn/powerlevel9k
-# Install font at https://github.com/powerline/fonts
+# Install font at https://github.com/ryanoasis/nerd-fonts
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_NODE_VERSION_FOREGROUND='black'
