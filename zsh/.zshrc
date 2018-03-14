@@ -96,4 +96,20 @@ source $NVM_DIR/nvm.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# ZSH hook to automatically execute "nvm use" when changing into a directory containg a .nvmrc file
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local nvmrc_path=".nvmrc"
+
+  if [ -e "$nvmrc_path" ]; then
+    local node_version="$(nvm version)"
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 # Hide the username display from agnoster theme
