@@ -139,4 +139,4 @@ jenv() {
   esac
 }
 
-export EDITOR=code:waiting
+export EDITOR="code --wait"
