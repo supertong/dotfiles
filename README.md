@@ -5,6 +5,8 @@ dotfiles for myself
 * Install zsh `brew install zsh`
 * Install oh-my-zsh
 * Symlink .zshrc `ln -s ~/Git/dotfiles/zsh/.zshrc ~`
+* Install (p10k theme)[https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k] `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k`
+* Install font `p10k configure`
 
 ## Tmux
 * Install tmux `brew install tmux`
@@ -14,4 +16,6 @@ dotfiles for myself
 
 
 ## Iterm2
-* Install theme at `https://github.com/chriskempson/base16-iterm2/blob/master/base16-solarflare.dark.256.itermcolors`
+* Import `profile.json`
+* Import color theme `base16-solarflare.dark.256.itermcolors`
+
