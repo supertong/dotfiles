@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator ssh dir)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs node_version time)
+# export ZSH=~/.oh-my-zsh
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator ssh dir)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs node_version time)
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -9,9 +9,9 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs node_version time)
 # time that oh-my-zsh is loaded.
 # Check details for the theme here https://github.com/bhilburn/powerlevel9k
 # Install font at https://github.com/ryanoasis/nerd-fonts
-ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_NODE_VERSION_FOREGROUND='black'
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+# POWERLEVEL9K_MODE='nerdfont-complete'
+# POWERLEVEL9K_NODE_VERSION_FOREGROUND='black'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -55,14 +55,17 @@ POWERLEVEL9K_NODE_VERSION_FOREGROUND='black'
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git node)
+# plugins=(git node)
 
 # User configuration
 
 export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
+
+# Starship thingy
+eval "$(starship init zsh)"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -92,30 +95,60 @@ source $ZSH/oh-my-zsh.sh
 # Bash Completion
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
+
+# FNM
+eval "$(fnm env --use-on-cd)"
 # NVM_PATH
-export NVM_DIR=~/.nvm
-source $NVM_DIR/nvm.sh
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR=~/.nvm
+# source $NVM_DIR/nvm.sh
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # ZSH hook to automatically execute "nvm use" when changing into a directory containg a .nvmrc file
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local nvmrc_path=".nvmrc"
+# autoload -U add-zsh-hook
+# load-nvmrc() {
+#   local nvmrc_path=".nvmrc"
 
-  if [ -e "$nvmrc_path" ]; then
-    local node_version="$(nvm version)"
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+#   if [ -e "$nvmrc_path" ]; then
+#     local node_version="$(nvm version)"
+#     local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
 
-    if [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+#     if [ "$nvmrc_node_version" != "$node_version" ]; then
+#       nvm use
+#     fi
+#   fi
+# }
+# add-zsh-hook chpwd load-nvmrc
+# load-nvmrc
 
 
-export EDITOR="code --wait"
+export EDITOR="zed --wait"
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/tongli/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/tongli/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/tongli/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/tongli/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# <<< conda initialize <<<
+
+# Golang
+export PATH="$PATH:/usr/local/go/bin"
+
+# Rust
+. "$HOME/.cargo/env"
+export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
